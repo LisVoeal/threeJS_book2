@@ -58,14 +58,15 @@
     renderer.render(scene, camera);
   }
 
-  animate();
-
   document.addEventListener("keydown", moveController);
 
   function moveController(event){
     let code = event.code;
-    if( code === KeyA ) body.position.x = body.position.x - 5;
-    if( code === keyD) body.position.x = body.position.x + 5;
-    if( code === keyW) body.position.z = body.position.z + 5;
-    if( code === keyS) body.position.z = body.position.z - 5;
+    console.log(code);
+    if(code == 'KeyA') body.position.x -= 5; 
+    else if(code == 'KeyD') body.position.x += 5;
+    else if(code == 'KeyW') body.position.z -= 5;
+    else if(code == 'KeyS') body.position.z += 5;
   }
+
+  animate();
