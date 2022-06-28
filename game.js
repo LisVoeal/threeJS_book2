@@ -103,7 +103,10 @@
   body.add(camera);
 
   let isCartwheeling = false;
-  let isWalking = false;
+  let isWalkingRight = false;
+  let isWalkingLeft = false;
+  let isWalkingForward = false;
+  let isWalkingBack = false;
 
   let cartwheeling_checkbox = document.querySelector('#isCartwheeling_checkbox');
   cartwheeling_checkbox.addEventListener("change", () => {
@@ -125,7 +128,10 @@
     acrobatics();
     walk();
     renderer.render(scene, camera);
-    isWalking = false;
+  }
+
+  function isWalking(){
+    if(isWalkingBack || isWalkingForward || isWalkingLeft || isWalkingRight) return true;
   }
 
   function acrobatics(){
@@ -135,7 +141,7 @@
 }
 
   function walk(){
-    if(isWalking){
+    if(isWalking()){
       let speed = 5;
       let size = 50;
       let time = clock.getElapsedTime();
@@ -148,15 +154,56 @@
   }
 
   document.addEventListener("keydown", moveController);
+  document.addEventListener("keyup", stopController);
+
+  function stopController(event){
+    let code = event.code;
+    console.log(code);
+    if(code == 'KeyA')
+    {
+      body.position.x -= 5; 
+      isWalkingLeft = false;
+    } 
+    else if(code == 'KeyD')
+    {
+      body.position.x += 5;
+      isWalkingRight = false;
+    } 
+    else if(code == 'KeyW')
+    {
+      body.position.z -= 5;
+      isWalkingForward = false;
+    } 
+    else if(code == 'KeyS')
+    {
+      body.position.z += 5;
+      isWalkingBack = false;
+    } 
+  }
 
   function moveController(event){
     let code = event.code;
     console.log(code);
-    if(code == 'KeyA') body.position.x -= 5; 
-    else if(code == 'KeyD') body.position.x += 5;
-    else if(code == 'KeyW') body.position.z -= 5;
-    else if(code == 'KeyS') body.position.z += 5;
-    isWalking = true;
+    if(code == 'KeyA')
+    {
+      body.position.x -= 5; 
+      isWalkingLeft = true;
+    } 
+    else if(code == 'KeyD')
+    {
+      body.position.x += 5;
+      isWalkingRight = true;
+    } 
+    else if(code == 'KeyW')
+    {
+      body.position.z -= 5;
+      isWalkingForward = true;
+    } 
+    else if(code == 'KeyS')
+    {
+      body.position.z += 5;
+      isWalkingBack = true;
+    } 
   }
 
   function makeTree(x, z){
