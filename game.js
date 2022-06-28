@@ -44,11 +44,9 @@
   cartwheeling_checkbox.addEventListener("change", () => {
     if(cartwheeling_checkbox.checked){
       isCartwheeling = true;
-      console.log(isCartwheeling);
     }
     else{
       isCartwheeling = false;
-      console.log(isCartwheeling);
     }
   })
 
@@ -61,3 +59,13 @@
   }
 
   animate();
+
+  document.addEventListener("keydown", moveController);
+
+  function moveController(event){
+    let code = event.code;
+    if( code === KeyA ) body.position.x = body.position.x - 5;
+    if( code === keyD) body.position.x = body.position.x + 5;
+    if( code === keyW) body.position.z = body.position.z + 5;
+    if( code === keyS) body.position.z = body.position.z - 5;
+  }
