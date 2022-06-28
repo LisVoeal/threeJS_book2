@@ -27,7 +27,12 @@ body{
   border-radius: 5px;
 }
 
-.camera{
+.camera-position{
+  display: flex;
+  flex-direction: column;
+}
+
+.camera-rotation{
   display: flex;
   flex-direction: column;
 }

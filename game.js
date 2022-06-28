@@ -12,30 +12,56 @@
   camera.position.y = y;
   camera.position.z = z;
 
-  let cameraX = document.querySelector('#cameraX');
-  let cameraY = document.querySelector("#cameraY");
-  let cameraZ = document.querySelector("#cameraZ");
+  let cameraXpos = document.querySelector('#cameraXpos');
+  let cameraYpos = document.querySelector("#cameraYpos");
+  let cameraZpos = document.querySelector("#cameraZpos");
 
-  cameraX.addEventListener("change", () => {
-    camera.position.x = cameraX.value;
+  cameraXpos.addEventListener("change", () => {
+    camera.position.x = cameraXpos.value;
   })
 
-  cameraY.addEventListener("change", () => {
-    camera.position.y = cameraY.value;
+  cameraYpos.addEventListener("change", () => {
+    camera.position.y = cameraYpos.value;
   })
 
-  cameraZ.addEventListener("change", () => {
-    camera.position.z = cameraZ.value;
+  cameraZpos.addEventListener("change", () => {
+    camera.position.z = cameraZpos.value;
   })
 
-  let cameraResetBtn = document.querySelector("#camera_reset");
-  cameraResetBtn.addEventListener("click", () =>{
+  let cameraResetPosBtn = document.querySelector("#camera_reset_pos");
+  cameraResetPosBtn.addEventListener("click", () =>{
     camera.position.x = x;
     camera.position.y = y;
     camera.position.z = z;
-    cameraX.value = x;
-    cameraY.value = y;
-    cameraZ.value = z;
+    cameraXpos.value = x;
+    cameraYpos.value = y;
+    cameraZpos.value = z;
+  })
+
+  let cameraXrot = document.querySelector('#cameraXrot');
+  let cameraYrot = document.querySelector("#cameraYrot");
+  let cameraZrot = document.querySelector("#cameraZrot");
+
+  cameraXrot.addEventListener("change", () => {
+    camera.rotation.x = cameraXrot.value;
+  })
+
+  cameraYrot.addEventListener("change", () => {
+    camera.rotation.y = cameraYrot.value;
+  })
+
+  cameraZrot.addEventListener("change", () => {
+    camera.rotation.z = cameraZrot.value;
+  })
+
+  let cameraResetRotBtn = document.querySelector("#camera_reset_rot");
+  cameraResetPosBtn.addEventListener("click", () =>{
+    camera.rotation.x = 0;
+    camera.rotation.y = 0;
+    camera.rotation.z = 0;
+    cameraXrot.value = 0;
+    cameraYrot.value = 0;
+    cameraZrot.value = 0;
   })
 
   // This will draw what the camera sees onto the screen:
