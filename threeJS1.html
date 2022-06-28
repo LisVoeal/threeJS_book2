@@ -49,11 +49,21 @@
   rightFoot.position.set(50, -140, 0);
 
   scene.add(body);
-  scene.add(rightHand);
-  scene.add(leftHand);
-  scene.add(leftFoot);
-  scene.add(rightFoot);
-  // Now, show what the camera sees on the screen:
-  renderer.render(scene, camera);
+  body.add(rightHand);
+  body.add(leftHand);
+  body.add(leftFoot);
+  body.add(rightFoot);
+
+  let isCartwheeling = true;
+
+  function animate(){
+    requestAnimationFrame(animate);
+    if(isCartwheeling){
+      body.rotation.z = body.rotation.z + 0.05;
+    }
+    renderer.render(scene, camera);
+  }
+  
+  animate();
 </script>
 </html>
