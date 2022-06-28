@@ -4,7 +4,39 @@
   // This is what sees the stuff:
   let aspect_ratio = window.innerWidth / window.innerHeight;
   let camera = new THREE.PerspectiveCamera(75, aspect_ratio, 1, 10000);
-  camera.position.z = 500;
+  const x = 0;
+  const y = 100;
+  const z = 500;
+
+  camera.position.x = x;
+  camera.position.y = y;
+  camera.position.z = z;
+
+  let cameraX = document.querySelector('#cameraX');
+  let cameraY = document.querySelector("#cameraY");
+  let cameraZ = document.querySelector("#cameraZ");
+
+  cameraX.addEventListener("change", () => {
+    camera.position.x = cameraX.value;
+  })
+
+  cameraY.addEventListener("change", () => {
+    camera.position.y = cameraY.value;
+  })
+
+  cameraZ.addEventListener("change", () => {
+    camera.position.z = cameraZ.value;
+  })
+
+  let cameraResetBtn = document.querySelector("#camera_reset");
+  cameraResetBtn.addEventListener("click", () =>{
+    camera.position.x = x;
+    camera.position.y = y;
+    camera.position.z = z;
+    cameraX.value = x;
+    cameraY.value = y;
+    cameraZ.value = z;
+  })
 
   // This will draw what the camera sees onto the screen:
   let renderer = new THREE.CanvasRenderer();
@@ -54,11 +86,17 @@
     }
   })
 
+  let cartwheelingResetBtn = document.querySelector("#cartwheeling_reset");
+  cartwheelingResetBtn.addEventListener("click", () => {
+    body.rotation.z = 0;
+  })
+
   function animate(){
     requestAnimationFrame(animate);
     if(isCartwheeling){
       body.rotation.z = body.rotation.z + 0.05;
     }
+
     renderer.render(scene, camera);
   }
 

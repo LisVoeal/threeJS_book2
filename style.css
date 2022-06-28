@@ -19,3 +19,15 @@ body{
   padding: 5px;
   border-radius: 5px;
 }
+
+.controls-box{
+  background: darkgray;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.camera{
+  display: flex;
+  flex-direction: column;
+}

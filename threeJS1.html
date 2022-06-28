@@ -9,9 +9,25 @@
 </head>
 <body>
   <div class="controls">
-    <div class="cartwheeling">
+    <div class="cartwheeling controls-box">
       <input type="checkbox" name="isCartwheeling" id="isCartwheeling_checkbox">
       <label for="isCartwheeling">isCartwheeling</label>
+      <button id="cartwheeling_reset">Reset</button>
+    </div>
+    <div class="camera controls-box">
+      <div>
+        <input type="text" name="cameraX" id="cameraX" value="0">
+        <label for="cameraX">CameraX</label>
+      </div>
+      <div>
+        <input type="text" name="cameraY" id="cameraY" value="100">
+        <label for="cameraY">CameraY</label>
+      </div>
+      <div>
+        <input type="text" name="cameraZ" id="cameraZ" value="500" >
+        <label for="cameraZ">CameraZ</label>
+      </div>
+      <button id="camera_reset">Reset</button>
     </div>
   </div>
 </body>
