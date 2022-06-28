@@ -14,12 +14,12 @@
 
   // ******** START CODING ON THE NEXT LINE ********
 
-  var shape = new THREE.SphereGeometry(250, 20, 15);
-  var cover = new THREE.MeshNormalMaterial();
-  var ball = new THREE.Mesh(shape, cover);
-
-  scene.add(ball);
-
-
+  function makePlanet(){
+    let size = 50;
+    let x = 0;
+    let y = 0;
+    let z = 0;
+    let surface = 'purple';
+  }
   // Now, show what the camera sees on the screen:
   renderer.render(scene, camera);

@@ -71,6 +71,8 @@
 
   // ******** START CODING ON THE NEXT LINE ********
 
+  let clock = new THREE.Clock();
+
   let shape = new THREE.SphereGeometry(100);
   let cover = new THREE.MeshNormalMaterial();
   let body = new THREE.Mesh(shape, cover);
@@ -100,7 +102,8 @@
   body.add(head);
   body.add(camera);
 
-  let isCartwheeling;
+  let isCartwheeling = false;
+  let isWalking = false;
 
   let cartwheeling_checkbox = document.querySelector('#isCartwheeling_checkbox');
   cartwheeling_checkbox.addEventListener("change", () => {
@@ -119,11 +122,29 @@
 
   function animate(){
     requestAnimationFrame(animate);
+    acrobatics();
+    walk();
+    renderer.render(scene, camera);
+    isWalking = false;
+  }
+
+  function acrobatics(){
     if(isCartwheeling){
       body.rotation.z = body.rotation.z + 0.05;
-    }
+  }
+}
 
-    renderer.render(scene, camera);
+  function walk(){
+    if(isWalking){
+      let speed = 5;
+      let size = 50;
+      let time = clock.getElapsedTime();
+      let position = Math.sin(speed * time) * size;
+      rightHand.position.z = position;
+      leftHand.position.z = -position;
+      leftFoot.position.z = position;
+      rightFoot.position.z = -position;
+    }
   }
 
   document.addEventListener("keydown", moveController);
@@ -135,6 +156,7 @@
     else if(code == 'KeyD') body.position.x += 5;
     else if(code == 'KeyW') body.position.z -= 5;
     else if(code == 'KeyS') body.position.z += 5;
+    isWalking = true;
   }
 
   function makeTree(x, z){
