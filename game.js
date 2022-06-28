@@ -5,7 +5,6 @@
   let aspect_ratio = window.innerWidth / window.innerHeight;
   let camera = new THREE.PerspectiveCamera(75, aspect_ratio, 1, 10000);
   camera.position.z = 500;
-  scene.add(camera);
 
   // This will draw what the camera sees onto the screen:
   let renderer = new THREE.CanvasRenderer();
@@ -41,6 +40,7 @@
   body.add(leftFoot);
   body.add(rightFoot);
   body.add(head);
+  body.add(camera);
 
   let isCartwheeling;
 
