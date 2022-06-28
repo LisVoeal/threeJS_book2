@@ -16,4 +16,6 @@ body{
   top: 0;
   z-index: 1000;
   background: lightgray;
+  padding: 5px;
+  border-radius: 5px;
 }

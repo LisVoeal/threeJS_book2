@@ -38,7 +38,15 @@
   body.add(leftFoot);
   body.add(rightFoot);
 
-  let isCartwheeling = true;
+  let cartwheeling_checkbox = document.querySelector('#isCartwheeling_checkbox');
+  let isCartwheeling;
+
+  if(cartwheeling_checkbox.checked){
+    isCartwheeling = true;
+  }
+  else{
+    isCartwheeling = false;
+  }
 
   function animate(){
     requestAnimationFrame(animate);
@@ -47,5 +55,6 @@
     }
     renderer.render(scene, camera);
   }
-  
-  animate();
+
+  let run_button = document.querySelector("#runBtn");
+  run_button.addEventListener("click", animate);
