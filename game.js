@@ -19,6 +19,9 @@
   let body = new THREE.Mesh(shape, cover);
 
   let handFoot = new THREE.SphereGeometry(50);
+  let headGeometry = new THREE.SphereGeometry(70);
+  let head = new THREE.Mesh(headGeometry, cover);
+  head.position.set(0, 120, 0);
   
   let rightHand = new THREE.Mesh(handFoot, cover);
   rightHand.position.set(140, 0, 0);
@@ -37,6 +40,7 @@
   body.add(leftHand);
   body.add(leftFoot);
   body.add(rightFoot);
+  body.add(head);
 
   let isCartwheeling;
 
