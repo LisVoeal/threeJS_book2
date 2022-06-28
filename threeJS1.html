@@ -34,7 +34,17 @@
   let cover = new THREE.MeshNormalMaterial();
   let avatar = new THREE.Mesh(shape, cover);
 
+  let hand = new THREE.SphereGeometry(50);
+  
+  let rightHand = new THREE.Mesh(hand, cover);
+  rightHand.position.set(140, 0, 0);
+
+  let leftHand = new THREE.Mesh(hand, cover);
+  leftHand.position.set(-140, 0, 0);
+
   scene.add(avatar);
+  scene.add(rightHand);
+  scene.add(leftHand);
   // Now, show what the camera sees on the screen:
   renderer.render(scene, camera);
 </script>
