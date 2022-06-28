@@ -69,4 +69,21 @@
     else if(code == 'KeyS') body.position.z += 5;
   }
 
+  function makeTree(x, z){
+    let trunk = new THREE.Mesh(new THREE.CylinderGeometry(50, 50, 200), new THREE.MeshBasicMaterial({color: 'sienna'}));
+
+    let top = new THREE.Mesh(new THREE.SphereGeometry(150), new THREE.MeshBasicMaterial({color: 'forestgreen'}));
+
+    top.position.y = 175;
+    trunk.add(top);
+
+    trunk.position.set(x, -75, z);
+    scene.add(trunk);
+  }
+
+  makeTree(500, 0);
+  makeTree(-500, 0);
+  makeTree(750, -1000);
+  makeTree(-750, -1000);
+
   animate();
