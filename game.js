@@ -132,6 +132,7 @@
 
   function animate(){
     requestAnimationFrame(animate);
+    TWEEN.update();
     acrobatics();
     walk();
     turn();
@@ -148,7 +149,12 @@
     if(isWalkingForward) direction = Math.PI;
     if(isWalkingBack) direction = 0;
 
-    body.rotation.y = direction;
+    if(direction === lastDirection) return;
+    lastDirection = direction;
+
+    let tween = new TWEEN.Tween(body.rotation);
+    tween.to({y: direction}, 500);
+    tween.start();
   }
 
   function acrobatics(){
