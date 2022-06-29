@@ -1,0 +1,38 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  overflow: hidden;
+  position: relative;
+}
+
+/*----------------------------------------------------------*/
+
+.controls{
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  background: lightgray;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.controls-box{
+  background: darkgray;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.camera-position{
+  display: flex;
+  flex-direction: column;
+}
+
+.camera-rotation{
+  display: flex;
+  flex-direction: column;
+}

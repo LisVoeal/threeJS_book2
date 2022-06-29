@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="controls">
+    <div class="cartwheeling controls-box">
+      <input type="checkbox" name="isCartwheeling" id="isCartwheeling_checkbox">
+      <label for="isCartwheeling">isCartwheeling</label>
+      <button id="cartwheeling_reset">Reset</button>
+    </div>
+    <div class="camera-position controls-box">
+      <div>
+        <input type="text" name="cameraX" id="cameraXpos" value="0">
+        <label for="cameraX">CameraX</label>
+      </div>
+      <div>
+        <input type="text" name="cameraY" id="cameraYpos" value="100">
+        <label for="cameraY">CameraY</label>
+      </div>
+      <div>
+        <input type="text" name="cameraZ" id="cameraZpos" value="500" >
+        <label for="cameraZ">CameraZ</label>
+      </div>
+      <button id="camera_reset_pos">Reset</button>
+    </div>
+    <div class="camera-rotation controls-box">
+      <div>
+        <input type="text" name="cameraX" id="cameraXrot" value="0">
+        <label for="cameraX">CameraX</label>
+      </div>
+      <div>
+        <input type="text" name="cameraY" id="cameraYrot" value="0">
+        <label for="cameraY">CameraY</label>
+      </div>
+      <div>
+        <input type="text" name="cameraZ" id="cameraZrot" value="0" >
+        <label for="cameraZ">CameraZ</label>
+      </div>
+      <button id="camera_reset_rot">Reset</button>
+    </div>
+  </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.js"></script>
+<script src="./three.js"></script>
+<script src="./game.js"></script>
+</html>
