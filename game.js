@@ -2,6 +2,7 @@
   let scene = new THREE.Scene();
 
   // This is what sees the stuff:
+
   let aspect_ratio = window.innerWidth / window.innerHeight;
   let camera = new THREE.PerspectiveCamera(75, aspect_ratio, 1, 10000);
   const x = 0;
@@ -207,14 +208,14 @@
   }
 
   function makeTree(x, z){
-    let trunk = new THREE.Mesh(new THREE.CylinderGeometry(50, 50, 200), new THREE.MeshBasicMaterial({color: 'sienna'}));
+    let trunk = new THREE.Mesh(new THREE.CylinderGeometry(50, 50, 300), new THREE.MeshBasicMaterial({color: 0xE97451}));
 
-    let top = new THREE.Mesh(new THREE.SphereGeometry(150), new THREE.MeshBasicMaterial({color: 'forestgreen'}));
+    let top = new THREE.Mesh(new THREE.SphereGeometry(200), new THREE.MeshBasicMaterial({color: 0x228B22}));
 
-    top.position.y = 175;
+    top.position.y = 250;
     trunk.add(top);
 
-    trunk.position.set(x, -75, z);
+    trunk.position.set(x, -40, z);
     scene.add(trunk);
   }
 
