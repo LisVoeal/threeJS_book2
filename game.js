@@ -112,7 +112,7 @@
   let isWalkingLeft = false;
   let isWalkingForward = false;
   let isWalkingBack = false;
-  let direction;
+  let direction = 0;
   let lastDirection;
 
   let cartwheeling_checkbox = document.querySelector('#isCartwheeling_checkbox');
@@ -147,7 +147,6 @@
     if(isWalkingLeft) direction = -Math.PI/2;
     if(isWalkingForward) direction = Math.PI;
     if(isWalkingBack) direction = 0;
-    if(!isWalking()) direction = 0;
 
     body.rotation.y = direction;
   }
