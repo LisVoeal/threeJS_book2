@@ -72,6 +72,9 @@
 
   // ******** START CODING ON THE NEXT LINE ********
 
+  let marker = new THREE.Object3D();
+  scene.add(marker);
+
   let clock = new THREE.Clock();
 
   let shape = new THREE.SphereGeometry(100);
@@ -101,13 +104,16 @@
   body.add(leftFoot);
   body.add(rightFoot);
   body.add(head);
-  body.add(camera);
+  marker.add(camera);
+  marker.add(body);
 
   let isCartwheeling = false;
   let isWalkingRight = false;
   let isWalkingLeft = false;
   let isWalkingForward = false;
   let isWalkingBack = false;
+  let direction;
+  let lastDirection;
 
   let cartwheeling_checkbox = document.querySelector('#isCartwheeling_checkbox');
   cartwheeling_checkbox.addEventListener("change", () => {
@@ -128,11 +134,22 @@
     requestAnimationFrame(animate);
     acrobatics();
     walk();
+    turn();
     renderer.render(scene, camera);
   }
 
   function isWalking(){
     if(isWalkingBack || isWalkingForward || isWalkingLeft || isWalkingRight) return true;
+  }
+
+  function turn(){
+    if(isWalkingRight) direction = Math.PI/2;
+    if(isWalkingLeft) direction = -Math.PI/2;
+    if(isWalkingForward) direction = Math.PI;
+    if(isWalkingBack) direction = 0;
+    if(!isWalking()) direction = 0;
+
+    body.rotation.y = direction;
   }
 
   function acrobatics(){
@@ -187,24 +204,24 @@
     console.log(code);
     if(code == 'KeyA')
     {
-      body.position.x -= 5; 
+      marker.position.x -= 5; 
       isWalkingLeft = true;
     } 
     else if(code == 'KeyD')
     {
-      body.position.x += 5;
+      marker.position.x += 5;
       isWalkingRight = true;
     } 
     else if(code == 'KeyW')
     {
-      body.position.z -= 5;
+      marker.position.z -= 5;
       isWalkingForward = true;
     } 
     else if(code == 'KeyS')
     {
-      body.position.z += 5;
+      marker.position.z += 5;
       isWalkingBack = true;
-    } 
+    }
   }
 
   function makeTree(x, z){
