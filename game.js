@@ -239,7 +239,17 @@
 
     trunk.position.set(x, -40, z);
     scene.add(trunk);
+
+    let boundary = new THREE.Mesh(new THREE.CircleGeometry(300),
+                                  new THREE.MeshNormalMaterial());
+    boundary.position.y = -180;
+    boundary.rotation.x = -Math.PI/2;
+
+    trunk.add(boundary);
+    notAllowed.push(boundary);
   }
+
+  let notAllowed = [];
 
   makeTree(500, 0);
   makeTree(-500, 0);
